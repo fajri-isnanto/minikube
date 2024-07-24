@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bastion-ubuntu-deployment
+  labels:
+    app: bastion-ubuntu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bastion-ubuntu
+  template:
+    metadata:
+      labels:
+        app: bastion-ubuntu
+    spec:
+      containers:
+      - name: bastion-ubuntu
+        image: kalax1011/bastion-ubuntu:1
+        ports:
+        - containerPort: 80
