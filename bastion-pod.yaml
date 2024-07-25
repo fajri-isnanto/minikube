@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: bastion-ubuntu
-        image: kalax1011/bastion-ubuntu:2
+        image: kalax1011/ubuntu:2
         ports:
         - containerPort: 80
