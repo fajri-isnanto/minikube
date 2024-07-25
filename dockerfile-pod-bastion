@@ -1,0 +1,8 @@
+FROM almalinux:latest
+
+# Install troubleshooting tools
+RUN dnf install -y epel-release && \
+    dnf install -y bind-utils telnet curl wget iputils net-tools traceroute tcpdump elinks
+
+# Run a simple command to keep the container running
+CMD ["/bin/bash", "-c", "while true; do sleep 1; done"]
