@@ -21,9 +21,9 @@ spec:
 apiVersion: v1 # v1 is the default API version. It is the latest version of the Core API.
 kind: Service # Service is a collection of Pods that are running on a host.
 metadata:
-  name: headless-nginx # name of the service
+  name: headless-nginx-new # name of the service
   labels:
-    app: headless-nginx # label for the service
+    app: headless-nginx-new # label for the service
 spec:
   selector:
     app: headless-nginx # label for the service
@@ -32,4 +32,3 @@ spec:
   - port: 80 # port to expose
     targetPort: 80 # container port
     protocol: TCP # protocol to use for the port mapping ( example TCP, UDP, or SCTP)
-  type: ClusterIP # type of service to create, ClusterIP is the default. Others are NodePort, LoadBalancer, and ExternalName.

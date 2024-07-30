@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: headless-nginx
+  name: normal-nginx
   labels:
-    app: headless-nginx # Deployment labels to match with replicaset labels and pods labels
+    app: normal-nginx # Deployment labels to match with replicaset labels and pods labels
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: headless-nginx # Replicaset to manage pods with labels
+      app: normal-nginx # Replicaset to manage pods with labels
   template:
     metadata:
       labels:
-        app: headless-nginx # Pods labels
+        app: normal-nginx # Pods labels
     spec:
       containers:
         - name: nginx
@@ -21,13 +21,12 @@ spec:
 apiVersion: v1 # v1 is the default API version. It is the latest version of the Core API.
 kind: Service # Service is a collection of Pods that are running on a host.
 metadata:
-  name: headless-nginx # name of the service
+  name: normal-nginx # name of the service
   labels:
-    app: headless-nginx # label for the service
+    app: normal-nginx # label for the service
 spec:
   selector:
-    app: headless-nginx # label for the service
-  #clusterIP: None # this is will point directly to pods, nslookup will rerun pod ips
+    app: normal-nginx # label for the service
   ports:
   - port: 80 # port to expose
     targetPort: 80 # container port
